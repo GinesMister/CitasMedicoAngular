@@ -7,8 +7,8 @@ import { HeaderpageComponent } from './components/headerpage/headerpage.componen
 import { MainComponent } from './components/main/main.component';
 import { MedicoCreateComponent } from './components/medico/medico-create/medico-create.component';
 import { MedicoListComponent } from './components/medico/medico-list/medico-list.component';
-import { MedicoService } from './services/medico.service';
 import { HttpClientModule } from '@angular/common/http';
+import { DataServerService } from './services/medico.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [
-    MedicoService,
+    DataServerService,
   ],
   bootstrap: [AppComponent]
 })

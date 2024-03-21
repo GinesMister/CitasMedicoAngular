@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { MedicoService } from '../../services/medico.service';
+import { DataServerService } from '../../services/medico.service';
+import { Medico } from '../../models/MedicoDTO';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +10,7 @@ import { MedicoService } from '../../services/medico.service';
 })
 export class MainComponent {
 
-  constructor(private titleService: Title, public medicoSv: MedicoService) { 
+  constructor(private titleService: Title, public medicoSv: DataServerService<Medico>) { 
     this.titleService.setTitle('Inicio')
   }
 

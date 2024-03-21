@@ -4,13 +4,13 @@ import { Usuario } from "./UsuarioDTO";
 
 export class Medico extends Usuario {
     numColegiado: string
-    arrCita: Array<Cita>
-    arrPaciente: Array<Paciente>
+    Citas: Array<Cita>
+    Pacientes: Array<Paciente>
 
-    constructor(id?: number, nombre?: string, apellidos?: string, nombreUsuario?: string, clave?: string, numColegiado?: string, arrCita?: Array<Cita>, arrPaciente?: Array<Paciente>) {
+    constructor(id?: number, nombre?: string, apellidos?: string, nombreUsuario?: string, clave?: string, numColegiado?: string, Citas?: Array<Cita>, Pacientes?: Array<Paciente>) {
         super(id, nombre, apellidos, nombre, clave)
         this.numColegiado = numColegiado || ''
-        this.arrCita =  arrCita || new Array()
-        this.arrPaciente = arrPaciente || new Array()
+        this.Citas =  Citas || new Array()
+        this.Pacientes = Pacientes || new Array()
     }
 }
