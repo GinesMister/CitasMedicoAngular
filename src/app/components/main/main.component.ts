@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { DataServerService } from '../../services/medico.service';
+import { DataServerService } from '../../services/data-server.service';
 import { Medico } from '../../models/MedicoDTO';
 
 @Component({

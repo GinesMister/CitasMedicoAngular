@@ -8,7 +8,11 @@ import { MainComponent } from './components/main/main.component';
 import { MedicoCreateComponent } from './components/medico/medico-create/medico-create.component';
 import { MedicoListComponent } from './components/medico/medico-list/medico-list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DataServerService } from './services/medico.service';
+import { DataServerService } from './services/data-server.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DeleteConfirmationComponent } from './components/pop-ups/delete-confirmation/delete-confirmation.component';
+import { MatDialogActions, MatDialogContent, MatDialogModule } from '@angular/material/dialog';
+import { InfoMessageComponent } from './components/pop-ups/info-message/info-message.component';
 
 @NgModule({
   declarations: [
@@ -16,15 +20,21 @@ import { DataServerService } from './services/medico.service';
     HeaderpageComponent,
     MainComponent,
     MedicoCreateComponent,
-    MedicoListComponent
+    MedicoListComponent,
+    DeleteConfirmationComponent,
+    InfoMessageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogActions,
+    MatDialogContent,
+    MatDialogModule
   ],
   providers: [
     DataServerService,
+    provideAnimationsAsync(),
   ],
   bootstrap: [AppComponent]
 })

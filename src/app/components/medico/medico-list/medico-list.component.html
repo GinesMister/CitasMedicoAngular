@@ -1,3 +1,36 @@
-<p>
-  medico-list works!
-</p>
+<app-headerpage></app-headerpage>
+
+<div class="container">
+  <h2>Listado de médicos</h2>
+  <app-info-message *ngIf="visiblePopup" [message]="'Médico borrado correctamente'" [time]="popupTime"></app-info-message>
+  <table>
+    <thead>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Nombre de usuario</th>
+      <th>Clave</th>
+      <th>Número de colegiado</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of arrMedico">
+        <td>{{element.id}}</td>
+        <td>{{element.nombre}}</td>
+        <td>{{element.apellidos}}</td>
+        <td>{{element.nombreUsuario}}</td>
+        <td>{{element.clave}}</td>
+        <td>{{element.numColegiado}}</td>
+        <td>
+          <button title="Ver detalles">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="btn-delete" title="Ver detalles" (click)="openDeleteDialog(element.id)">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
