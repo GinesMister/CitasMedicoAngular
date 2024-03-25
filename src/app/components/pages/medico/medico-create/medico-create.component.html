@@ -1,0 +1,39 @@
+<app-headerpage></app-headerpage>
+
+<app-info-message *ngIf="visiblePopup" [message]="popupMessage"></app-info-message>
+
+<button class="back" (click)="router.navigateByUrl('/medicos')"><i class="fas fa-arrow-left"></i>
+    Lista de médicos
+</button>
+<app-loading-spinner *ngIf="loading.isLoading"></app-loading-spinner>
+<div class="container">
+  <h2>Introduce los datos del médico</h2>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" name="nombre" ngModel #nombre="ngModel" required minlength="4">
+          <div class="error-message" [hidden]="nombre.valid || nombre.pristine">Este campo debe tener más de 4 caracteres</div>
+        </div>
+        <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" name="apellidos" ngModel #apellidos="ngModel" required minlength="4">
+            <div class="error-message" [hidden]="apellidos.valid || apellidos.pristine">Este campo debe tener más de 4 caracteres</div>
+        </div>
+        <div class="form-group">
+            <label>Nombre de usuario</label>
+            <input type="text" name="nombreUsuario" ngModel #nombreUsuario="ngModel" required minlength="4">
+            <div class="error-message" [hidden]="nombreUsuario.valid || nombreUsuario.pristine">Este campo debe tener más de 4 caracteres</div>
+        </div>
+        <div class="form-group">
+            <label>Clave</label>
+            <input type="text" name="clave" ngModel #clave="ngModel" required>
+            <div class="error-message" [hidden]="clave.valid || clave.pristine">Este campo es obligatorio</div>
+        </div>
+        <div class="form-group">
+            <label>Número de colegiado</label>
+            <input type="text" name="numColegiado" ngModel #numColegiado="ngModel" required>
+            <div class="error-message" [hidden]="numColegiado.valid || numColegiado.pristine">Este campo es obligatorio</div>
+      </div>
+      <button type="submit" [disabled]="!form.form.valid">Guardar médico</button>
+  </form>
+</div>

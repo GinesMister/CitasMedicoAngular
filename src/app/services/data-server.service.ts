@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { MedicoRequest } from '../models/request/MedicoRequestDTO';
 import { Observable } from 'rxjs';
 
 @Injectable({

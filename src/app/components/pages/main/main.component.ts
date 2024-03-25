@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { DataServerService } from '../../services/data-server.service';
-import { Medico } from '../../models/MedicoDTO';
+import { DataServerService } from '../../../services/data-server.service';
+import { Medico } from '../../../models/MedicoDTO';
 
 @Component({
   selector: 'app-main',
