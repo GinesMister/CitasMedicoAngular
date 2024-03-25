@@ -17,18 +17,19 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { LoadingService } from './services/loading.service';
-import { DataLocalService } from './services/data-local.service';
+import { MedicoDetailsComponent } from './components/pages/medico/medico-details/medico-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DeleteConfirmationComponent,
+    InfoMessageComponent,
+    LoadingSpinnerComponent,
     HeaderpageComponent,
     MainComponent,
     MedicoCreateComponent,
-    MedicoListComponent,
-    DeleteConfirmationComponent,
-    InfoMessageComponent,
-    LoadingSpinnerComponent
+    MedicoDetailsComponent,
+    MedicoListComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,6 @@ import { DataLocalService } from './services/data-local.service';
   providers: [
     DataServerService,
     LoadingService,
-    DataLocalService,
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

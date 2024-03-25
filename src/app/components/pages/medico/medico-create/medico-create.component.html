@@ -1,6 +1,6 @@
 <app-headerpage></app-headerpage>
 
-<app-info-message *ngIf="visiblePopup" [message]="popupMessage"></app-info-message>
+<app-info-message *ngIf="visiblePopup" [message]="popupMessage" [time]="popupTime"></app-info-message>
 
 <button class="back" (click)="router.navigateByUrl('/medicos')"><i class="fas fa-arrow-left"></i>
     Lista de médicos

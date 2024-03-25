@@ -4,6 +4,7 @@ import { DataServerService } from '../../../../services/data-server.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteConfirmationComponent } from '../../../pop-ups/delete-confirmation/delete-confirmation.component';
 import { LoadingService } from '../../../../services/loading.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-medico-list',
@@ -14,7 +15,7 @@ export class MedicoListComponent {
 
   arrMedico: Array<Medico> = []
   
-  constructor(private dataSv: DataServerService<Medico>, private dialog: MatDialog, public loading: LoadingService) {
+  constructor(private dataSv: DataServerService<Medico>, private dialog: MatDialog, public loading: LoadingService, private router: Router) {
     this.updateList()
   }
   
@@ -50,5 +51,9 @@ export class MedicoListComponent {
     setTimeout(() => {
       this.visiblePopup = false
     }, this.popupTime + 1000)
+  }
+
+  goToDetails(idMedico: number) {
+    this.router.navigate(['/medicos/' + idMedico])
   }
 }

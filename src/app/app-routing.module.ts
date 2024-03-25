@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'medicos', component: MedicoListComponent},
   {path: 'medicos/crear', component: MedicoCreateComponent},
-  {path: 'medicos/detalles', component: MedicoDetailsComponent},
+  {path: 'medicos/:id', component: MedicoDetailsComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

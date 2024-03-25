@@ -15,7 +15,7 @@ export class DataServerService<T> {
   }
 
   getById(resource: string, id: number): Observable<T> {
-    return this.http.get<T>(`${this.baseUrl}/${resource}?Id=${id}`)
+    return this.http.get<T>(`${this.baseUrl}/${resource}/${id}`)
   }
 
   create(resource: string, element: any) {
@@ -24,5 +24,9 @@ export class DataServerService<T> {
 
   deleteById(resource: string, id: number) {
     return this.http.delete<T>(`${this.baseUrl}/${resource}/${id}`)
+  }
+
+  update(resource: string, element: T, id: number) {
+    return this.http.put<T>(`${this.baseUrl}/${resource}/${id}`, element)
   }
 }
