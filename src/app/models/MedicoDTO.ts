@@ -8,7 +8,7 @@ export class Medico extends Usuario {
     pacientes: Array<Paciente>
 
     constructor(id?: number, nombre?: string, apellidos?: string, nombreUsuario?: string, clave?: string, numColegiado?: string, citas?: Array<Cita>, pacientes?: Array<Paciente>) {
-        super(id, nombre, apellidos, nombre, clave)
+        super(id, nombre, apellidos, nombreUsuario, clave)
         this.numColegiado = numColegiado || ''
         this.citas =  citas || new Array()
         this.pacientes = pacientes || new Array()

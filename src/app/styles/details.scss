@@ -1,0 +1,129 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.main-card,
+.side-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex-basis: 48%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    position: relative;
+    .form-group {
+        margin-bottom: 20px;
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 95.5%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            &.untouched {
+                background-color: #e4e4e4;
+                color: rgb(102, 102, 102);
+                font-style: italic;
+            }
+            &:focus {
+                background-color: inherit;
+                color: inherit;
+                font-style: inherit;
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+    button[disabled] {
+        cursor: not-allowed;
+        background-color: #8cc3ff;
+        &:hover {
+            background-color: #6eb4ff;
+        }
+    }
+
+    .error-message {
+        margin-top: 1px;
+        padding: 10px;
+        border: 1px solid rgb(255, 152, 152);
+        border-radius: 5px;
+        color: #ff0000;
+        background-color: rgb(255, 203, 203);
+        font-size: 15px;
+    }
+}
+
+.side-card {
+    padding: 0px;
+    .patients-list {
+        padding: 20px;
+        
+        h2 {
+            margin-bottom: 20px;
+        }
+        
+        h3 {
+            position: relative;
+            // position: absolute;
+            top: 140px;
+            color: #ccc;
+            font-weight: normal;
+            text-align: center;
+            height: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            height: 100%;
+            overflow-y: auto;
+            
+            li {
+                margin-bottom: 10px;
+                padding: 10px;
+                border-bottom: 1px solid #ccc;
+                display: flex;
+                justify-content: space-between;
+                span.name {
+                    flex-grow: 1;
+                }
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+        button.option {
+            margin-left: auto;
+        }
+    }
+}

@@ -9,7 +9,7 @@ export class Paciente extends Usuario {
     citas: Array<Cita>
 
     constructor(id?: number, nombre?: string, apellidos?: string, nombreUsuario?: string, clave?: string, nss?: string, numTarjeta?: string, telefono?: string, direccion?: string, citas?: Array<Cita>) {
-        super(id, nombre, apellidos, nombre, clave)
+        super(id, nombre, apellidos, nombreUsuario, clave)
         this.nss = nss || ''
         this.numTarjeta = numTarjeta || ''
         this.telefono = telefono || ''

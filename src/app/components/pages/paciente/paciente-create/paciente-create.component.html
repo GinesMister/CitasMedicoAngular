@@ -1,3 +1,54 @@
-<p>
-  paciente-create works!
-</p>
+<app-headerpage></app-headerpage>
+
+<app-info-message *ngIf="visiblePopup" [message]="popupMessage" [time]="popupTime"></app-info-message>
+
+<button class="back" (click)="router.navigateByUrl('/pacientes')"><i class="fas fa-arrow-left"></i>
+    Lista de pacientes
+</button>
+<app-loading-spinner *ngIf="loading.isLoading"></app-loading-spinner>
+<div class="container">
+  <h2>Introduce los datos del paciente</h2>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" name="nombre" ngModel #nombre="ngModel" required minlength="4">
+          <div class="error-message" [hidden]="nombre.valid || nombre.pristine">Este campo debe tener más de 4 caracteres</div>
+        </div>
+        <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" name="apellidos" ngModel #apellidos="ngModel" required minlength="4">
+            <div class="error-message" [hidden]="apellidos.valid || apellidos.pristine">Este campo debe tener más de 4 caracteres</div>
+        </div>
+        <div class="form-group">
+            <label>Nombre de usuario</label>
+            <input type="text" name="nombreUsuario" ngModel #nombreUsuario="ngModel" required minlength="4">
+            <div class="error-message" [hidden]="nombreUsuario.valid || nombreUsuario.pristine">Este campo debe tener más de 4 caracteres</div>
+        </div>
+        <div class="form-group">
+            <label>Clave</label>
+            <input type="text" name="clave" ngModel #clave="ngModel" required>
+            <div class="error-message" [hidden]="clave.valid || clave.pristine">Este campo es obligatorio</div>
+        </div>
+        <div class="form-group">
+            <label>NSS</label>
+            <input type="text" name="nss" ngModel #nss="ngModel" required>
+            <div class="error-message" [hidden]="nss.valid || nss.pristine">Este campo es obligatorio</div>
+        </div>
+        <div class="form-group">
+          <label>Número de tarjeta</label>
+          <input type="text" name="numTarjeta" ngModel #numTarjeta="ngModel" required>
+          <div class="error-message" [hidden]="numTarjeta.valid || numTarjeta.pristine">Este campo es obligatorio</div>
+      </div>
+      <div class="form-group">
+        <label>Teléfono</label>
+        <input type="text" name="telefono" ngModel #telefono="ngModel" required>
+        <div class="error-message" [hidden]="telefono.valid || telefono.pristine">Este campo es obligatorio</div>
+    </div>
+    <div class="form-group">
+      <label>Dirección</label>
+      <input type="text" name="direccion" ngModel #direccion="ngModel" required>
+      <div class="error-message" [hidden]="direccion.valid || direccion.pristine">Este campo es obligatorio</div>
+  </div>
+      <button type="submit" [disabled]="!form.form.valid">Guardar paciente</button>
+  </form>
+</div>

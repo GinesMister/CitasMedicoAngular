@@ -33,7 +33,7 @@
             <label>Número de colegiado</label>
             <input type="text" name="numColegiado" ngModel #numColegiado="ngModel" required>
             <div class="error-message" [hidden]="numColegiado.valid || numColegiado.pristine">Este campo es obligatorio</div>
-      </div>
+        </div>
       <button type="submit" [disabled]="!form.form.valid">Guardar médico</button>
   </form>
 </div>
