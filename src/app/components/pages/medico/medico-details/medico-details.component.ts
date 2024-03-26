@@ -5,6 +5,7 @@ import { Medico } from '../../../../models/MedicoDTO';
 import { NgForm } from '@angular/forms';
 import { LoadingService } from '../../../../services/loading.service';
 import { Paciente } from '../../../../models/PacienteDTO';
+import { Cita } from '../../../../models/CitaDTO';
 
 @Component({
   selector: 'app-medico-details',
@@ -78,6 +79,14 @@ export class MedicoDetailsComponent {
     }, error => {
         this.popupMessage = 'Error al guardar el médico'
     }).add(() => { this.loading.isLoading = false; this.openPopup() })
+  }
+
+  getCommonCita(idPaciente: number) {
+    // let paciente
+    // this.dataPacienteSv.getById('paciente', idPaciente).subscribe(result => {
+    //   paciente = result
+    // })
+    // return paciente.citas.find((cita: Cita) => cita.idMedico === this.medico?.id)
   }
 
   popupTime = 4000

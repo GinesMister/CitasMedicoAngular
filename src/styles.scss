@@ -19,10 +19,18 @@ button.option {
         background-color: #0b6cb9;
     }
 }
-
 button.delete {
     background-color: red;
     &:hover {
         background-color: rgb(224, 0, 0);
+    }
+}
+button.create {
+    font-size: 0.9em;
+    width: 110px;
+    background-color: rgb(18, 184, 27);
+    
+    &:hover {
+        background-color: rgb(40, 148, 45);
     }
 }

@@ -18,6 +18,9 @@ import { CommonModule } from '@angular/common';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { LoadingService } from './services/loading.service';
 import { MedicoDetailsComponent } from './components/pages/medico/medico-details/medico-details.component';
+import { PacienteListComponent } from './components/pages/paciente/paciente-list/paciente-list.component';
+import { PacienteCreateComponent } from './components/pages/paciente/paciente-create/paciente-create.component';
+import { PacienteDetailsComponent } from './components/pages/paciente/paciente-details/paciente-details.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,10 @@ import { MedicoDetailsComponent } from './components/pages/medico/medico-details
     MainComponent,
     MedicoCreateComponent,
     MedicoDetailsComponent,
-    MedicoListComponent
+    MedicoListComponent,
+    PacienteListComponent,
+    PacienteCreateComponent,
+    PacienteDetailsComponent
   ],
   imports: [
     BrowserModule,

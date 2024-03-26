@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { NotFoundComponent } from './components/pages/not-found/not-found.component';
 import { MainComponent } from './components/pages/main/main.component';
 import { MedicoListComponent } from './components/pages/medico/medico-list/medico-list.component';
 import { MedicoCreateComponent } from './components/pages/medico/medico-create/medico-create.component';
 import { MedicoDetailsComponent } from './components/pages/medico/medico-details/medico-details.component';
+import { PacienteListComponent } from './components/pages/paciente/paciente-list/paciente-list.component';
+import { PacienteCreateComponent } from './components/pages/paciente/paciente-create/paciente-create.component';
+import { PacienteDetailsComponent } from './components/pages/paciente/paciente-details/paciente-details.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
   {path: 'medicos', component: MedicoListComponent},
   {path: 'medicos/crear', component: MedicoCreateComponent},
   {path: 'medicos/:id', component: MedicoDetailsComponent},
+  {path: 'pacientes', component: PacienteListComponent},
+  {path: 'pacientes/crear', component: PacienteCreateComponent},
+  {path: 'pacientes/:id', component: PacienteDetailsComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
