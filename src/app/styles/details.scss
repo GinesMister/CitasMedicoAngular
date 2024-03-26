@@ -19,7 +19,7 @@ h2 {
     margin-bottom: 20px;
 }
 
-form {
+.form {
     position: relative;
     .form-group {
         margin-bottom: 20px;
@@ -52,16 +52,18 @@ form {
     button {
         width: 100%;
         padding: 10px;
-        background-color: #007bff;
         color: #fff;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
         transition: background-color 0.3s;
-
-        &:hover {
-            background-color: #0056b3;
+        &.save {
+            background-color: #007bff;
+            margin-bottom: 10px;
+            &:hover {
+                background-color: #0056b3;
+            }
         }
     }
     button[disabled] {
@@ -94,7 +96,6 @@ form {
         
         h3 {
             position: relative;
-            // position: absolute;
             top: 140px;
             color: #ccc;
             font-weight: normal;
@@ -125,5 +126,29 @@ form {
         button.option {
             margin-left: auto;
         }
+
+    }
+    button.option.create {
+        position: relative;
+        // top: 710px;
+        top: 280px;
+        margin-left: 20px;
+    }
+
+}
+button.back {
+    width: 160px;
+    height: 30px;
+    position: relative;
+    left: 47%;
+    top: 40px;
+    margin-right: 10px;
+    border-radius: 10px;
+    background-color: #0c83f1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    &:hover { 
+        background-color: #0b6cb9;
     }
 }

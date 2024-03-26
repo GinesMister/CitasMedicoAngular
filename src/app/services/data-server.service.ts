@@ -26,7 +26,7 @@ export class DataServerService<T> {
     return this.http.delete<T>(`${this.baseUrl}/${resource}/${id}`)
   }
 
-  update(resource: string, element: T, id: number) {
+  update(resource: string, element: any, id: number) {
     return this.http.put<T>(`${this.baseUrl}/${resource}/${id}`, element)
   }
 }

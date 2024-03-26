@@ -31,4 +31,12 @@
         right: 0;
         transform: translateY(-45px);
     }
+
+    button.add {
+        background-color: rgb(119, 197, 1);
+        &:hover {
+            background-color: rgb(104, 156, 26);
+            
+        }
+    }
 }

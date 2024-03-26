@@ -1,6 +1,7 @@
 import { Cita } from "./CitaDTO";
 import { Paciente } from "./PacienteDTO";
 import { Usuario } from "./UsuarioDTO";
+import { MedicoRequest } from "./request/MedicoRequestDTO";
 
 export class Medico extends Usuario {
     numColegiado: string
@@ -12,5 +13,13 @@ export class Medico extends Usuario {
         this.numColegiado = numColegiado || ''
         this.citas =  citas || new Array()
         this.pacientes = pacientes || new Array()
+    }
+
+    toRequest(): MedicoRequest {
+        const mr = new MedicoRequest(this.nombre, this.apellidos, this.nombreUsuario, this.clave, this.numColegiado)
+        this.pacientes.forEach(p => {
+            mr.idsPaciente.push(p.id)
+        })
+        return mr
     }
 }

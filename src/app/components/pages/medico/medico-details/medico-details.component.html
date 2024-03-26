@@ -2,39 +2,45 @@
 <app-info-message *ngIf="visiblePopup" [message]="popupMessage" [time]="popupTime"></app-info-message>
 <app-loading-spinner *ngIf="loading.isLoading"></app-loading-spinner>
 
+<button class="back" (click)="router.navigateByUrl('/medicos')"><i class="fas fa-arrow-left"></i>
+  Lista de médicos
+</button>
 <div class="container">
   <div class="main-card">
     <h2>Modificar datos del médico</h2>
-    <form (ngSubmit)="onSubmit()" #form="ngForm">
-        <div class="form-group">
-            <label>Nombre</label>
-            <input [ngClass]="{'untouched': nombre.pristine}" [disabled]="!hasLoad" type="text" name="nombre" ngModel #nombre="ngModel" required minlength="4">
-            <div class="error-message" [hidden]="nombre.valid || nombre.pristine ">Este campo debe tener más de 4 caracteres</div>
-          </div>
+    <div class="form">
+      <form (ngSubmit)="onSubmit()" #form="ngForm">
           <div class="form-group">
-              <label>Apellidos</label>
-              <input [ngClass]="{'untouched': apellidos.pristine}" [disabled]="!hasLoad" type="text" name="apellidos" ngModel #apellidos="ngModel" required minlength="4">
-              <div class="error-message" [hidden]="apellidos.valid || apellidos.pristine">Este campo debe tener más de 4 caracteres</div>
+              <label>Nombre</label>
+              <input [ngClass]="{'untouched': nombre.pristine}" [disabled]="!hasLoad" type="text" name="nombre" ngModel #nombre="ngModel" required minlength="4">
+              <div class="error-message" [hidden]="nombre.valid || nombre.pristine ">Este campo debe tener más de 4 caracteres</div>
+            </div>
+            <div class="form-group">
+                <label>Apellidos</label>
+                <input [ngClass]="{'untouched': apellidos.pristine}" [disabled]="!hasLoad" type="text" name="apellidos" ngModel #apellidos="ngModel" required minlength="4">
+                <div class="error-message" [hidden]="apellidos.valid || apellidos.pristine">Este campo debe tener más de 4 caracteres</div>
+            </div>
+            <div class="form-group">
+                <label>Nombre de usuario</label>
+                <input [ngClass]="{'untouched': nombreUsuario.pristine}" [disabled]="!hasLoad" type="text" name="nombreUsuario" ngModel #nombreUsuario="ngModel" required minlength="4">
+                <div class="error-message" [hidden]="nombreUsuario.valid || nombreUsuario.pristine">Este campo debe tener más de 4 caracteres</div>
+            </div>
+            <div class="form-group">
+                <label>Clave</label>
+                <input [ngClass]="{'untouched': clave.pristine}" [disabled]="!hasLoad" type="text" name="clave" ngModel #clave="ngModel" required>
+                <div class="error-message" [hidden]="clave.valid || clave.pristine">Este campo es obligatorio</div>
+            </div>
+            <div class="form-group">
+                <label>Número de colegiado</label>
+                <input [ngClass]="{'untouched': numColegiado.pristine}" [disabled]="!hasLoad" type="text" name="numColegiado" ngModel #numColegiado="ngModel" required>
+                <div class="error-message" [hidden]="numColegiado.valid || numColegiado.pristine">Este campo es obligatorio</div>
           </div>
-          <div class="form-group">
-              <label>Nombre de usuario</label>
-              <input [ngClass]="{'untouched': nombreUsuario.pristine}" [disabled]="!hasLoad" type="text" name="nombreUsuario" ngModel #nombreUsuario="ngModel" required minlength="4">
-              <div class="error-message" [hidden]="nombreUsuario.valid || nombreUsuario.pristine">Este campo debe tener más de 4 caracteres</div>
-          </div>
-          <div class="form-group">
-              <label>Clave</label>
-              <input [ngClass]="{'untouched': clave.pristine}" [disabled]="!hasLoad" type="text" name="clave" ngModel #clave="ngModel" required>
-              <div class="error-message" [hidden]="clave.valid || clave.pristine">Este campo es obligatorio</div>
-          </div>
-          <div class="form-group">
-              <label>Número de colegiado</label>
-              <input [ngClass]="{'untouched': numColegiado.pristine}" [disabled]="!hasLoad" type="text" name="numColegiado" ngModel #numColegiado="ngModel" required>
-              <div class="error-message" [hidden]="numColegiado.valid || numColegiado.pristine">Este campo es obligatorio</div>
-        </div>
-        <button type="submit" [disabled]="!form.form.dirty || !form.form.valid">
-          Guardar cambios
-        </button>
-    </form>
+          <button class="save" type="submit" [disabled]="!form.form.dirty || !form.form.valid">
+            Guardar cambios
+          </button>
+        </form>
+        <button class="delete" (click)="deleteMedico()">Eliminar médico</button>
+    </div>
   </div>
 
   <div class="side-card">
@@ -44,11 +50,13 @@
       <ul>
         <li *ngFor="let element of medico?.pacientes">
           <span class="name">{{element.nombre}} {{element.apellidos}}</span>
-          <button class="option"><i class="fas fa-eye"></i></button>
-          <button class="option delete"><i class="fas fa-trash-alt"></i></button>
+          <button class="option" (click)="router.navigateByUrl('/pacientes/'+element.id)"><i class="fas fa-eye"></i></button>
+          <button class="option delete" (click)="unbindPaciente(element.id)"><i class="fas fa-trash-alt"></i></button>
         </li>
       </ul>
     </div>
-    <button class="option create">Añadir <i class="fas fa-plus-circle"></i></button>
+    <button class="option create" (click)="isAddPacienteVisible = true">Añadir <i class="fas fa-plus-circle"></i></button>
   </div>
 </div>
+
+<app-paciente-list #pacienteList *ngIf="isAddPacienteVisible" [isPage]="false" [buttonsToShow]="['add']" [idMedico]="medico?.id" [pacientesToSkip]="getArrIdPaciente(medico?.pacientes!)" (updatePage)="updateMedicoFromServer(false)"></app-paciente-list>
