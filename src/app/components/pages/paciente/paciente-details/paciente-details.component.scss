@@ -1,1 +1,13 @@
 @import url(../../../../styles/details.scss);
+li span.date {
+    flex-grow: 0.1;
+    color: rgb(138, 138, 138);
+}
+
+button.option.create {
+    position: absolute;
+    top: 1030px;
+}
+.side-card .list ul {
+    max-height: 750px;
+}

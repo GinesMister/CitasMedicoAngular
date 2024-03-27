@@ -16,4 +16,10 @@ export class Cita {
         this.idMedico = idMedico || 0
         this.idPaciente = idPaciente || 0
     }
+
+    parseDate(fechaHora: string | Date) {
+        if (typeof fechaHora !== 'string') return fechaHora
+        const result = new Date(fechaHora)
+        return result
+    }
 }

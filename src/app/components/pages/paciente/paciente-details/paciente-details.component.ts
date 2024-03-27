@@ -6,6 +6,7 @@ import { Paciente } from '../../../../models/PacienteDTO';
 import { LoadingService } from '../../../../services/loading.service';
 import { NgForm } from '@angular/forms';
 import { DeleteConfirmationComponent } from '../../../pop-ups/delete-confirmation/delete-confirmation.component';
+import { Cita } from '../../../../models/CitaDTO';
 
 @Component({
   selector: 'app-paciente-details',
@@ -16,15 +17,15 @@ export class PacienteDetailsComponent {
 
   paciente: Paciente | undefined
   
-  isAddPacienteVisible: boolean = false
-  // @ViewChild('pacienteList') pacienteList!: PacienteListComponent
-
   hasLoad = false
   
   @ViewChild('form') form!: NgForm;
   
+  funcCita: Cita
+  
   constructor(public router: Router, private dialog: MatDialog, private route: ActivatedRoute, private dataPacienteSv: DataServerService<Paciente>, public loading: LoadingService) {
     this.updatePacienteFromServer()
+    this.funcCita = new Cita()
   }
   
   fillFormData() {
