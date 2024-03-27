@@ -21,6 +21,9 @@ import { MedicoDetailsComponent } from './components/pages/medico/medico-details
 import { PacienteListComponent } from './components/pages/paciente/paciente-list/paciente-list.component';
 import { PacienteCreateComponent } from './components/pages/paciente/paciente-create/paciente-create.component';
 import { PacienteDetailsComponent } from './components/pages/paciente/paciente-details/paciente-details.component';
+import { CitaListComponent } from './components/pages/cita/cita-list/cita-list.component';
+import { CitaCreateComponent } from './components/pages/cita/cita-create/cita-create.component';
+import { CitaDetailsComponent } from './components/pages/cita/cita-details/cita-details.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { PacienteDetailsComponent } from './components/pages/paciente/paciente-d
     MedicoListComponent,
     PacienteListComponent,
     PacienteCreateComponent,
-    PacienteDetailsComponent
+    PacienteDetailsComponent,
+    CitaListComponent,
+    CitaCreateComponent,
+    CitaDetailsComponent
   ],
   imports: [
     BrowserModule,

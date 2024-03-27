@@ -8,6 +8,9 @@ import { MedicoDetailsComponent } from './components/pages/medico/medico-details
 import { PacienteListComponent } from './components/pages/paciente/paciente-list/paciente-list.component';
 import { PacienteCreateComponent } from './components/pages/paciente/paciente-create/paciente-create.component';
 import { PacienteDetailsComponent } from './components/pages/paciente/paciente-details/paciente-details.component';
+import { CitaListComponent } from './components/pages/cita/cita-list/cita-list.component';
+import { CitaCreateComponent } from './components/pages/cita/cita-create/cita-create.component';
+import { CitaDetailsComponent } from './components/pages/cita/cita-details/cita-details.component';
 
 const routes: Routes = [
   {path: '', component: MainComponent},
@@ -17,6 +20,9 @@ const routes: Routes = [
   {path: 'pacientes', component: PacienteListComponent},
   {path: 'pacientes/crear', component: PacienteCreateComponent},
   {path: 'pacientes/:id', component: PacienteDetailsComponent},
+  {path: 'citas', component: CitaListComponent},
+  {path: 'citas/crear', component: CitaCreateComponent},
+  {path: 'citas/:id', component: CitaDetailsComponent},
   {path: '**', component: NotFoundComponent},
 ];
 

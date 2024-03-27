@@ -65,7 +65,7 @@
       <ul>
         <li *ngFor="let element of paciente?.citas">
           <span class="name">{{element.motivoCita}}</span><span class="date">{{funcCita.parseDate(element.fechaHora).getFullYear()}}/{{funcCita.parseDate(element.fechaHora).getMonth()}}/{{funcCita.parseDate(element.fechaHora).getDay()}}</span>
-          <button class="option" title="Ver detalles" (click)="router.navigateByUrl('e/pacientes/'+element.id)"><i class="fas fa-eye"></i></button>
+          <button class="option" title="Ver detalles" (click)="router.navigateByUrl('/citas/'+element.id)"><i class="fas fa-eye"></i></button>
           <!-- <button class="option delete" (click)="unbindPacinte(element.id)"><i class="fas fa-trash-alt"></i></button> -->
           
         </li>

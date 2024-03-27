@@ -22,4 +22,11 @@ export class Cita {
         const result = new Date(fechaHora)
         return result
     }
+
+    formatDate(date: Date): string {
+        return `${date.getDate()}/
+        ${date.getMonth()}/
+        ${date.getFullYear()}
+         - ${date.getHours()}:${date.getMinutes()}`
+    }
 }
