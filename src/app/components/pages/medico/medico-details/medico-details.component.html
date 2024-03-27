@@ -44,14 +44,14 @@
   </div>
 
   <div class="side-card">
-    <div class="patients-list">
+    <div class="list">
       <h2>Listado de pacientes asignados</h2>
       <h3 *ngIf="medico?.pacientes?.length == 0">No hay pacientes asignados</h3>
       <ul>
         <li *ngFor="let element of medico?.pacientes">
           <span class="name">{{element.nombre}} {{element.apellidos}}</span>
-          <button class="option" (click)="router.navigateByUrl('/pacientes/'+element.id)"><i class="fas fa-eye"></i></button>
-          <button class="option delete" (click)="unbindPaciente(element.id)"><i class="fas fa-trash-alt"></i></button>
+          <button class="option" title="Ver detalles" (click)="router.navigateByUrl('/pacientes/'+element.id)"><i class="fas fa-eye"></i></button>
+          <button class="option delete" title="Eliminar de la lista" (click)="unbindPaciente(element.id)"><i class="fas fa-trash-alt"></i></button>
         </li>
       </ul>
     </div>

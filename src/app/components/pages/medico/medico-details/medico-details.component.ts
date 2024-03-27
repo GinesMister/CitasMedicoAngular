@@ -1,4 +1,4 @@
-import { AfterViewChecked, AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, viewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataServerService } from '../../../../services/data-server.service';
 import { Medico } from '../../../../models/MedicoDTO';
@@ -126,14 +126,13 @@ updateMedicoFromForm() {
     return arrPaciente.map((paciente: Paciente) => paciente.id)
   }  
     
-    popupTime = 4000
-    visiblePopup: boolean = false
-    popupMessage = ''
-    openPopup() {
-      this.visiblePopup = true
-      setTimeout(() => {
-        this.visiblePopup = false
-      }, this.popupTime + 1000)
-    }
-    
+  popupTime = 4000
+  visiblePopup: boolean = false
+  popupMessage = ''
+  openPopup() {
+    this.visiblePopup = true
+    setTimeout(() => {
+      this.visiblePopup = false
+    }, this.popupTime + 1000)
+  } 
 }

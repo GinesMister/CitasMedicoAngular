@@ -87,7 +87,7 @@ h2 {
 
 .side-card {
     padding: 0px;
-    .patients-list {
+    .list {
         padding: 20px;
         
         h2 {
@@ -106,7 +106,7 @@ h2 {
         ul {
             list-style-type: none;
             padding: 0;
-            height: 100%;
+            max-height: 470px;
             overflow-y: auto;
             
             li {
@@ -129,12 +129,11 @@ h2 {
 
     }
     button.option.create {
-        position: relative;
+        position: absolute;
         // top: 710px;
-        top: 280px;
+        bottom: 130px;
         margin-left: 20px;
     }
-
 }
 button.back {
     width: 160px;
