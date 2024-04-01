@@ -105,6 +105,8 @@ updatePacienteFromForm() {
     })
   }
 
+  goToCreateCita(idPaciente: number) {
+  }
   // getArrIdPaciente(arrPaciente: Array<Paciente>): Array<number> {
   //   return arrPaciente.map((paciente: Paciente) => paciente.id)
   // }  

@@ -1,4 +1,4 @@
-<app-headerpage></app-headerpage>
+<app-headerpage *ngIf="isPage"></app-headerpage>
 <app-info-message *ngIf="visiblePopup" [message]="popupMessage" [time]="popupTime"></app-info-message>
 <app-loading-spinner *ngIf="loading.isLoading"></app-loading-spinner>
 
@@ -12,12 +12,12 @@
       <form (ngSubmit)="onSubmit(form)" #form="ngForm">
           <div class="form-group">
               <label>Fecha y hora</label>
-              <input type="datetime-local" name="fechaHora" ngModel #fechaHora="ngModel" required minlength="4">
+              <input [ngClass]="{untouched: fechaHora.pristine && type == 'edit'}" type="datetime-local" name="fechaHora" ngModel #fechaHora="ngModel" required minlength="4">
               <div class="error-message" [hidden]="fechaHora.valid || fechaHora.pristine ">Este campo debe tener más de 4 caracteres</div>
             </div>
             <div class="form-group">
                 <label>Motivo de la cita</label>
-                <input type="text" name="motivoCita" ngModel #motivoCita="ngModel" required minlength="4">
+                <input [ngClass]="{untouched: motivoCita.pristine && type == 'edit'}" type="text" name="motivoCita" ngModel #motivoCita="ngModel" required minlength="4">
                 <div class="error-message" [hidden]="motivoCita.valid || motivoCita.pristine">Este campo debe tener más de 4 caracteres</div>
             </div>
 
@@ -25,12 +25,12 @@
             <h2>Datos del diagnóstico</h2>
             <div class="form-group">
                 <label>Valoración del especialista</label>
-                <input type="text" name="valoracionEspecialista" ngModel #valoracionEspecialista="ngModel" required minlength="4">
+                <input [ngClass]="{untouched: valoracionEspecialista.pristine && type == 'edit'}" type="text" name="valoracionEspecialista" ngModel #valoracionEspecialista="ngModel" required minlength="4">
                 <div class="error-message" [hidden]="valoracionEspecialista.valid || valoracionEspecialista.pristine">Este campo debe tener más de 4 caracteres</div>
             </div>
             <div class="form-group">
                 <label>Enfermedad</label>
-                <input type="text" name="enfermedad" ngModel #enfermedad="ngModel" required minlength="4">
+                <input [ngClass]="{untouched: enfermedad.pristine && type == 'edit'}" type="text" name="enfermedad" ngModel #enfermedad="ngModel" required minlength="4">
                 <div class="error-message" [hidden]="enfermedad.valid || enfermedad.pristine">Este campo debe tener más de 4 caracteres</div>
             </div>
           <button class="save" type="submit" [disabled]="!form.form.dirty || !form.form.valid || !isMedicoBinded() || !isPacienteBinded()">
