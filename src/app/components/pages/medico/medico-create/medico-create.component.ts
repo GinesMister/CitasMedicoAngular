@@ -13,7 +13,7 @@ import { LoadingService } from '../../../../services/loading.service';
 })
 export class MedicoCreateComponent {
 
-  constructor(public router: Router, private sv:DataServerService<Medico>, public loading: LoadingService) { }
+  constructor(public router: Router, private sv: DataServerService<Medico>, public loading: LoadingService) { }
 
   onSubmit(f: NgForm) {
     const m: MedicoRequest = new MedicoRequest()

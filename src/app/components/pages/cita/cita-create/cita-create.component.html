@@ -1,3 +1,72 @@
-<p>
-  cita-create works!
-</p>
+<app-headerpage></app-headerpage>
+<app-info-message *ngIf="visiblePopup" [message]="popupMessage" [time]="popupTime"></app-info-message>
+<app-loading-spinner *ngIf="loading.isLoading"></app-loading-spinner>
+
+<button class="back" (click)="router.navigateByUrl('/citas')"><i class="fas fa-arrow-left"></i>
+  Lista de citas
+</button>
+<div class="container">
+  <div class="main-card">
+    <h2>Introduce los datos de la cita</h2>
+    <div class="form">
+      <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <div class="form-group">
+              <label>Fecha y hora</label>
+              <input type="datetime-local" name="fechaHora" ngModel #fechaHora="ngModel" required minlength="4">
+              <div class="error-message" [hidden]="fechaHora.valid || fechaHora.pristine ">Este campo debe tener más de 4 caracteres</div>
+            </div>
+            <div class="form-group">
+                <label>Motivo de la cita</label>
+                <input type="text" name="motivoCita" ngModel #motivoCita="ngModel" required minlength="4">
+                <div class="error-message" [hidden]="motivoCita.valid || motivoCita.pristine">Este campo debe tener más de 4 caracteres</div>
+            </div>
+
+            <!-- Diagnostico -->
+            <h2>Datos del diagnóstico</h2>
+            <div class="form-group">
+                <label>Valoración del especialista</label>
+                <input type="text" name="valoracionEspecialista" ngModel #valoracionEspecialista="ngModel" required minlength="4">
+                <div class="error-message" [hidden]="valoracionEspecialista.valid || valoracionEspecialista.pristine">Este campo debe tener más de 4 caracteres</div>
+            </div>
+            <div class="form-group">
+                <label>Enfermedad</label>
+                <input type="text" name="enfermedad" ngModel #enfermedad="ngModel" required minlength="4">
+                <div class="error-message" [hidden]="enfermedad.valid || enfermedad.pristine">Este campo debe tener más de 4 caracteres</div>
+            </div>
+          <button class="save" type="submit" [disabled]="!form.form.dirty || !form.form.valid || !isMedicoBinded() || !isPacienteBinded()">
+            Guardar cita
+          </button>
+        </form>
+    </div>
+  </div>
+
+  <div class="side-card">
+    <div class="list">
+      <h2>Asignar médico</h2>
+      <h3 *ngIf="arrMedico.length == 0">No hay médicos</h3>
+        <ul>
+          <li *ngFor="let element of arrMedico">
+            <span class="name">{{element.nombre}} {{element.apellidos}}</span>
+            <button class="option" title="Ver detalles" (click)="router.navigateByUrl('/medicos/'+element.id)"><i class="fas fa-eye"></i></button>
+            <button class="option add" title="Asignar" (click)="bindMedico(element.id)" [disabled]="isMedicoBinded(element.id)">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </li>
+        </ul>
+    </div>
+    <div class="list">
+      <h2>Asignar paciente</h2>
+      <h3 *ngIf="arrPaciente.length == 0">No hay pacientes</h3>
+        <ul>
+          <li *ngFor="let element of arrPaciente">
+            <span class="name">{{element.nombre}} {{element.apellidos}}</span>
+            <button class="option" title="Ver detalles" (click)="router.navigateByUrl('/pacientes/'+element.id)"><i class="fas fa-eye"></i></button>
+            <button class="option add" title="Asignar" (click)="bindPaciente(element.id)" [disabled]="isPacienteBinded(element.id)">
+              <i class="fas fa-plus-circle"></i>
+            </button>
+          </li>
+        </ul>
+    </div>
+    <!-- <button class="option create" (click)="router.navigateByUrl('citas/crear')">Añadir <i class="fas fa-plus-circle"></i></button> -->
+  </div>
+</div>

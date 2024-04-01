@@ -34,3 +34,11 @@ button.create {
         background-color: rgb(40, 148, 45);
     }
 }
+
+button.add {
+    background-color: rgb(119, 197, 1);
+    &:hover {
+        background-color: rgb(104, 156, 26);
+        
+    }
+}

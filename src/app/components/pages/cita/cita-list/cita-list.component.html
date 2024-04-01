@@ -28,10 +28,10 @@
           {{getMedicoFullName(element.idMedico)}}
         </td>
         <td>
-          <button class="option" title="Ver detalles" (click)="goToDetails(element.id)">
+          <button class="option" title="Ver detalles" (click)="goToDetails(element.id!)">
             <i class="fas fa-eye"></i>
           </button>
-          <button class="option delete" title="Borrar" (click)="openDeleteDialog(element.id)">
+          <button class="option delete" title="Borrar" (click)="openDeleteDialog(element.id!)">
             <i class="fas fa-trash-alt"></i>
           </button>
         </td>
